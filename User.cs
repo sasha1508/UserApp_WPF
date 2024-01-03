@@ -8,14 +8,18 @@ namespace UserApp_WPF
 {
     class User
     {
-        int id { get;set;}
-        string login, pass, email;
+        public int id { get;set;}
+        public string login, pass, email;
+
+        public string Login 
+        {
+            get { return login; }
+            set { login = value; } }
 
         public User() { }
 
-        public User(int id, string login, string pass, string email)
+        public User(string login, string pass, string email)
         {
-            this.id = id;
             this.login = login;
             this.pass = pass;
             this.email = email;
