@@ -9,12 +9,23 @@ namespace UserApp_WPF
     class User
     {
         public int id { get;set;}
-        public string login, pass, email;
+        private string login, pass, email;
 
         public string Login 
         {
             get { return login; }
-            set { login = value; } }
+            set { login = value; } 
+        }
+        public string Pass
+        {
+            get { return pass; }
+            //set { pass = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            //set { email = value; }
+        }
 
         public User() { }
 

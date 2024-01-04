@@ -23,10 +23,9 @@ namespace UserApp_WPF
             InitializeComponent();
 
             db = new ApplicationContext();
-
             List<User> users = db.Users.ToList();
             string str = "";
-            foreach (User user in users) { str += "Login: " + user.login + " | "; }
+            foreach (User user in users) { str += "Login: " + user.Login + " Pass: " + user.Pass + " Email: " + user.Email + " | "; }
             exampleText.Text = str;
         }
 
@@ -54,7 +53,7 @@ namespace UserApp_WPF
             }
             else if (email.Length < 5 || !email.Contains('@') || !email.Contains('.'))
             {
-                textBoxEmail.ToolTip = "Emeil неверный!";
+                textBoxEmail.ToolTip = "Email неверный!";
                 textBoxEmail.Background = Brushes.DarkRed;
             }
             else
@@ -75,6 +74,13 @@ namespace UserApp_WPF
                 db.Users.Add(user);
                 db.SaveChanges();
             }
+        }
+
+        private void Button_Auth_Click(object sender, RoutedEventArgs e)
+        {
+            AuthWindow authWindow = new AuthWindow();
+            Close();
+            authWindow.ShowDialog();
         }
     }
 }
